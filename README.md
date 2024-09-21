@@ -23,4 +23,15 @@ To get started with Zepit locally, follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Farzanaltafbhat/zepit.git
+   
+2. **Navigate to zepit**:
+   ```bash
    cd zepit
+
+3. **Install Dependencies**:
+   ```bash
+   npm install
+
+4. **Start the Server**:
+   ```bash
+   npm run dev
