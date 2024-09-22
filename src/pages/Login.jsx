@@ -1,43 +1,29 @@
-// src/Login.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-// import {  useNavigate } from 'react-router-dom';
+import { useAuth } from '../pages/AuthContext'; // Import the context
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState(Cookies.get('token') || '');
-//   const navigate = useNavigate();
+  const { setToken } = useAuth(); // Get setToken from context
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/login', { email, password });
-      setToken(response.data.token);
+      setToken(response.data.token); // Save token in context
       Cookies.set('token', response.data.token); // Save the token in a cookie
       window.location.href = '/home'; // Redirect to home after login
-      alert('logged in')
+      alert('Logged in');
     } catch (error) {
       alert('Error logging in. Please check your credentials.');
     }
   };
 
-  const handleLogout = () => {
-    setToken('');
-    Cookies.remove('token'); // Remove the token from the cookie
-    alert('Logged out successfully!');
-  };
-
-  useEffect(() => {
-    // Update token from cookies on component mount
-    const savedToken = Cookies.get('token');
-    if (savedToken) {
-      setToken(savedToken);
-    }
-  }, []);
-
   return (
     <div>
-        <a href="/register">Register</a>
+      <a href="/register">Register</a>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div>
@@ -50,12 +36,6 @@ const Login = () => {
         </div>
         <button type="submit">Login</button>
       </form>
-      {token && (
-        <div>
-          <p>Token: {token}</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      )}
     </div>
   );
 };

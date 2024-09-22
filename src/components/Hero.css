@@ -1,0 +1,27 @@
+.hero {
+    background-color: #FF9933;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .order-button {
+    background-color: #4682B4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 30px 10px;
+    }
+  
+    .order-button {
+      padding: 10px 15px;
+    }
+  }
+  

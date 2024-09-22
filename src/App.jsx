@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import AppRouter from './routes/Router'; // Adjust the import path if necessary
 import Cookies from 'js-cookie';
 import { Navigate } from 'react-router-dom';
+import Register from './Pages/Register';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,9 +16,9 @@ const App = () => {
   return (
     <div>
       {isLoggedIn ? (
-      <h1>WELCOME</h1>
+      <p></p>
       ) : (
-        <h1>Please log in or register.</h1>
+       <p></p>
       )}
       <AppRouter isLoggedIn={isLoggedIn} />
     </div>

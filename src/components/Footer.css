@@ -1,0 +1,14 @@
+.footer {
+    background-color: #4682B4;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 15px;
+    }
+  }
+  
