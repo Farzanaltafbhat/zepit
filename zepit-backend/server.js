@@ -6,11 +6,14 @@ const cors = require('cors');
 const productRoutes = require('./src/routes/productRoutes'); // Import product routes
 const orderRoutes = require('./src/routes/orderRoutes'); // Add this line
 const userRoutes = require('./src/routes/userRoutes'); // Adjust path as needed
+const cookieParser = require('cookie-parser');
+const adminRoutes = require('./src/routes/adminRoutes'); // Ensure this path is correct
+
 // Initialize the express app
 const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON bodies
-
+app.use(cookieParser());
 // Connect to MongoDB Atlas
 connectDB();
 
@@ -45,6 +48,7 @@ app.use(productRoutes);
 // Use order routes
 app.use(orderRoutes);
 app.use('/', userRoutes); // Make sure this matches the path used in your routes
+app.use('/api', adminRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
