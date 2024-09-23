@@ -9,9 +9,9 @@ const AppRouter = ({ isLoggedIn }) => {
   return (
     <Router>
       <Routes>
-      <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/login" />} />
-      <Route path="/login" element={!isLoggedIn ? <Login /> : <Navigate to="/home" />} />
-      <Route path="/register" element={!isLoggedIn ? <Register /> : <Navigate to="/home" />} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/login" element={!isLoggedIn ? <Login /> : <Navigate to="/" />} />
+      <Route path="/register" element={!isLoggedIn ? <Register /> : <Navigate to="/" />} />
       </Routes>
     </Router>
   );

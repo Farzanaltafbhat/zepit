@@ -21,7 +21,7 @@ const Header = () => {
 
   const handleLogoutAndRedirect = () => {
     handleLogout();
-    navigate('/login');
+    window.location.href = '/login';
   };
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Header = () => {
             </li>
             {token ? (
               <li>
-                <Link to="#" onClick={handleLogoutAndRedirect}>Logout</Link>
+                <Link to="/login" onClick={handleLogoutAndRedirect}>Logout</Link>
               </li>
             ) : (
               <li>
